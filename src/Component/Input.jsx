@@ -25,14 +25,15 @@ const Input = () => {
     const { data } = useContext(ChatContext);
 
     const handleSend = async () => {
+        console.log(img)
         if (img) {
             const storageRef = ref(storage, uuid());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
-
+            // console.log(uploadTask)
             uploadTask.on(
                 (error) => {
-                    console.log(error)
+                    // console.log(error)
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -72,6 +73,7 @@ const Input = () => {
             },
             [data.chatId + ".date"]: serverTimestamp(),
         });
+        console.log(img, "img")
 
         setText("");
         setImg(null);
@@ -86,23 +88,24 @@ const Input = () => {
                     type="text"
                     placeholder='Enter your messege...'
                     className='py-3 px-3fyarn start rounded-full focus:outline-none w-full focus:bg-gray-200'
-                    aria-required
+                    required
                 />
             </div>
             <div className='flex '>
                 <input
-                    value={img}
-                    onChange={e => setImg(e.target.files[0])}
-                    className='hidden' type="file" id="attach" />
-                <label
+                    onChange={(e) => setImg(
+                        "image"
+                    )}
+                    className='hidden'
+                    type="file"
+                    id="attach"
 
+                />
+                <label
                     className='flex items-center'
                     htmlFor="attach">
                     <div className='w-6 h-6 flex'>
                         <img className='h-full w-full' src={Attach} alt="" />
-                    </div>
-                    <div className='w-10 h-10'>
-                        <img className='w-full h-full' src={Img} alt="" />
                     </div>
                 </label>
                 <button

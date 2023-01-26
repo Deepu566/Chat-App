@@ -19,7 +19,8 @@ const Messeges = () => {
     return (
         <div className='h-[calc(100%-128px)] bg-[#ddddf7] overflow-y-scroll'>
             {
-                messages.map((m) => (
+                messages?.map((m) => (
+                    m.text !== "" &&
                     <Messege message={m} key={m.id} />
                 ))
             }

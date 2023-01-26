@@ -41,8 +41,21 @@ const Chats = () => {
                             src={chat[1].userInfo.photoURL} alt="" />
                     </div>
                     <div className='details'>
-                        <div className='name font-semibold'>{chat[1].userInfo.displayName}</div>
-                        <div className='messege text-sm'>{chat[1].lastMessage?.text}</div>
+                        <div className='name font-semibold'>{
+                            chat[1].userInfo.displayName.charAt(0).toUpperCase()
+                            + chat[1].userInfo.displayName.slice(1)
+                        }</div>
+                        {
+                            chat[1].lastMessage?.text !== "" &&
+                            (
+
+                                <div className='messege text-sm'>
+                                    {
+                                        chat[1].lastMessage?.text
+                                    }
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             ))}

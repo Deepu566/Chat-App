@@ -28,11 +28,9 @@ const Search = () => {
         try {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                console.log(doc)
                 setUser(doc.data())
-                console.log(user)
             })
-        } catch (err) {
+        } catch (e) {
             setErr(true)
         }
     }

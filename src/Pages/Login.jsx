@@ -29,6 +29,10 @@ const Login = () => {
                 <div className='text-center mb-2'>
                     <h1 className='mb-2 font-bold text-2xl text-sky-900'>Chat App</h1>
                     <h2 className='font-semibold text-gray-400'>Login</h2>
+                    {
+                        err &&
+                        <h3 className='font-semibold text-red-500'>Invalid Credentials! Please Try again with your correct email and password</h3>
+                    }
                 </div>
                 <form onSubmit={handleSubmit} action="" className='flex gap-5 flex-col justify-center mb-3'>
                     <input type="email" placeholder='email' className='placeholder:text-sm focus:outline-0 border-b py-3 px-3' />
@@ -41,10 +45,7 @@ const Login = () => {
                         <span className='text-blue-500 cursor-pointer'>Register</span>
                     </Link>
                 </div>
-                {
-                    err &&
-                    <span>Somthing went wrong</span>
-                }
+
             </div>
         </div>
     )
