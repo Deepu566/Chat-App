@@ -11,7 +11,6 @@ import {
     serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase"
-import Person from "../utilites/person.avif"
 import { AuthContext } from "../context/AuthContext";
 
 const Search = () => {

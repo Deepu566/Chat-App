@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
 
+
 const Chats = () => {
     const [chats, setChats] = useState([]);
 
@@ -35,6 +36,7 @@ const Chats = () => {
                     className='hover:bg-neutral-800 flex gap-3 py-2 px-3 border-b border-gray-500'
                     key={chat[0]}
                 >
+
                     <div className='h-12 w-12 rounded-full'>
                         <img
                             className='h-full w-full rounded-full object-cover'
@@ -51,7 +53,7 @@ const Chats = () => {
 
                                 <div className='messege text-sm'>
                                     {
-                                        chat[1].lastMessage?.text
+                                        chat[1].lastMessage?.text.substr(0, 25)
                                     }
                                 </div>
                             )

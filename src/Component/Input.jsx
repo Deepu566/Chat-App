@@ -1,8 +1,4 @@
-import Attach from "../utilites/attachIcon.png"
-import Img from "../utilites/attachImg.jpg"
 import React, { useContext, useState } from "react";
-// import Img from "../img/img.png";
-// import Attach from "../img/attach.png";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import {
@@ -15,7 +11,8 @@ import {
 import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import ImageIcon from '@mui/icons-material/Image';
 
 const Input = () => {
     const [text, setText] = useState("");
@@ -30,10 +27,10 @@ const Input = () => {
             const storageRef = ref(storage, uuid());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
-            // console.log(uploadTask)
+
             uploadTask.on(
                 (error) => {
-                    // console.log(error)
+                    console.log(error)
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -79,19 +76,21 @@ const Input = () => {
         setImg(null);
     }
 
+
     return (
         <div className='bg-white h-16 px-5 py-3 flex justify-between items-center'>
             <div className='w-3/4'>
                 <input
                     value={text}
+                    onKeyDown={e => e.code === "Enter" && handleSend()}
                     onChange={e => setText(e.target.value)}
                     type="text"
                     placeholder='Enter your messege...'
-                    className='py-3 px-3fyarn start rounded-full focus:outline-none w-full focus:bg-gray-200'
+                    className='py-3 px-3 rounded-full focus:outline-none w-full focus:bg-gray-200'
                     required
                 />
             </div>
-            <div className='flex '>
+            <div className='flex gap-2 '>
                 <input
                     onChange={(e) => setImg(
                         "image"
@@ -99,20 +98,19 @@ const Input = () => {
                     className='hidden'
                     type="file"
                     id="attach"
-
                 />
                 <label
-                    className='flex items-center'
+                    className='flex gap-1 items-center'
                     htmlFor="attach">
-                    <div className='w-6 h-6 flex'>
-                        <img className='h-full w-full' src={Attach} alt="" />
-                    </div>
+                    <ImageIcon />
+                    <AttachFileIcon className="rotate-45" />
                 </label>
                 <button
                     onClick={handleSend}
                     className='hover:bg-blue-500 bg-blue-400 px-4 text-white font-semibold rounded-md'>
                     Send
                 </button>
+
             </div>
         </div>
     )

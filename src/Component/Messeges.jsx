@@ -11,13 +11,12 @@ const Messeges = () => {
         const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
             doc.exists() && setMessages(doc.data().messages);
         });
-
         return () => {
             unSub();
         };
     }, [data.chatId]);
     return (
-        <div className='h-[calc(100%-128px)] bg-[#ddddf7] overflow-y-scroll'>
+        <div className='h-[calc(100%-128px)] bg-[#ddddf7] overflow-y-scroll overflow-x-hidden'>
             {
                 messages?.map((m) => (
                     m.text !== "" &&
