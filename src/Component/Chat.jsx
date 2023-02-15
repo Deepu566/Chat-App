@@ -8,10 +8,11 @@ import { ChatContext } from '../context/ChatContext'
 const Chat = () => {
     const { data } = useContext(ChatContext);
     return (
-        <div className=' flex-1 w-48'>
+        <div className='flex-1 w-48
+        '>
             <div className='h-16 bg-[#5d5b8d] flex items-center justify-between px-5 py-3'>
                 <div className='text-white font-semibold'>{data.user?.displayName}</div>
-                <div className='flex items-center gap-3 '>
+                <div className='flex items-center gap-3'>
                     <VideocamIcon />
                     <PersonAddIcon />
                     <MoreVertIcon />

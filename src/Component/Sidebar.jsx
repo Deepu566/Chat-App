@@ -5,7 +5,8 @@ import Navbar from './Navbar'
 
 const Sidebar = () => {
     return (
-        <div className='bg-neutral-700 w-80'>
+        <div className='bg-neutral-700 
+        max-sm:w-screen'>
             < Navbar />
             <Search />
             <Chats />

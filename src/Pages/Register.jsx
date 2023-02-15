@@ -52,7 +52,8 @@ const Register = () => {
     }
     return (
         <div className='h-screen bg-indigo-300 flex justify-center items-center'  >
-            <div className='form-wrapper bg-white px-16 py-5 rounded-lg w-4/12'>
+            <div className='form-wrapper bg-white px-16 py-5 rounded-lg w-4/12
+            max-sm:h-full max-sm:w-full max-sm:flex max-sm:flex-col max-sm:justify-center'>
                 <div className='text-center mb-2'>
                     <h1 className='mb-2 font-bold text-2xl text-sky-900'>Chat App</h1>
                     <h2 className='font-semibold text-gray-400'>Register</h2>

@@ -30,7 +30,7 @@ const Chats = () => {
     };
 
     return (
-        <div className=' chat items-center text-white gap-3'>
+        <div className='chat items-center text-white gap-3'>
             {Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
                 <div onClick={() => handleSelect(chat[1].userInfo)}
                     className='hover:bg-neutral-800 flex gap-3 py-2 px-3 border-b border-gray-500'

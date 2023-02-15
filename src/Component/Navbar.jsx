@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div className='h-6 w-6 rounded-full'>
                     <img className='h-full w-full object-cover rounded-full' src={currentUser.photoURL} alt="" />
                 </div>
-                <div className=''>{currentUser.displayName.toUpperCase()}</div>
+                <div className=''>{currentUser.displayName}</div>
                 <button onClick={() => signOut(auth)} className='bg-teal-600 text-sm px-1 py-[2px] rounded-md'>Logout</button>
             </div>
         </div>

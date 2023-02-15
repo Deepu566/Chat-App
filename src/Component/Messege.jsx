@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { AuthContext } from "../context/AuthContext"
 import { ChatContext } from "../context/ChatContext"
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 
 const Messege = ({ message }) => {
@@ -12,7 +13,6 @@ const Messege = ({ message }) => {
     useEffect(() => {
         ref.current?.scrollIntoView({ behavior: "smooth" });
     }, [message]);
-
     return (
         <>
             {
